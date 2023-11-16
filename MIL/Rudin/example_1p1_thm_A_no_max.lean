@@ -40,3 +40,18 @@ def A : Set ℚ := { p : ℚ | p ^ 2 < 2 }
 -- theorem exists_greater : ∀ (p : ℚ), p ∈ A → ∃ (q : ℚ), q ∈ A ∧ p < q :=
 theorem exists_greater : ∀ p ∈ A → ∃ (q : ℚ), q ∈ A ∧ p < q :=
 sorry
+
+theorem exists_gt_of_mem_nhds {α : Type*} [TopologicalSpace α]
+    [LinearOrder α] [DenselyOrdered α] [OrderTopology α]
+    [NoMaxOrder α] {a : α} {s : Set α}
+    (h : s ∈ 𝓝 a) : ∃ b ∈ s, a < b := by
+  obtain ⟨u, h₁, h₂⟩ := exists_Ico_subset_of_mem_nhds h (exists_gt _)
+  obtain ⟨u', h₃, h₄⟩ := exists_between h₁
+  exact ⟨u', h₂ ⟨h₃.le, h₄⟩, h₃⟩
+
+/-- The set { x : ℚ | x*x < 2 } has no maximum -/
+theorem no_max_sq_lt_two (x : ℚ) (hx : x * x < 2) :
+    ∃ y, y * y < 2 ∧ x < y := by
+  refine exists_gt_of_mem_nhds (IsOpen.mem_nhds ?_ hx)
+  have : Continuous (fun t : ℚ => t * t) := by continuity
+  exact this.isOpen_preimage (Set.Iio 2) isOpen_Iio
