@@ -43,11 +43,16 @@ structure Cut where
   -- 3. continue in Rudin!
   -- 4. Show (II) implies --> (IV) & (V)
 
-def A : Set ℚ := { x | x < 3}
-theorem A_is_a_cut : Cut d
+def A : Set ℚ := { x | x < 3 }
+theorem A_is_a_cut : Cut :=
 {
   carrier := A,
-  not_empty := sorry, -- Proof that A is not empty
+  not_empty := by
+    intro h
+    -- how to construct false (show the universe is not empty)
+
+    sorry, -- Proof that A is not empty
+
   not_all := sorry, -- Proof that A is not the set of all rationals
   p_less_q_in_carrier := sorry, -- Proof of ∀ p ∈ A, ∀ q : ℚ, q < p -> q ∈ A
   p_less_q_in_carrier' := sorry, -- Alternative proof of the same property
