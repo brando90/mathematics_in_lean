@@ -33,6 +33,7 @@ import Mathlib.Order.Bounds.Basic
 
 #check lowerBounds
 
+-- https://chat.openai.com/c/45037233-fdad-47f2-879a-2f03eed09d02 (explanation of thm stmt)
 theorem sup_of_lower_bounds {S : Type*} [LinearOrder S]
     (B : Set S) (L : Set S) (hL : L = lowerBounds B) (hL : L.Nonempty)
     {α : S} (hα : IsLUB L α) :
