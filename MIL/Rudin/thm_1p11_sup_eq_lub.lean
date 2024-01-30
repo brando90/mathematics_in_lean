@@ -1,16 +1,21 @@
 /-
-thm 1.11
-
-1.11 Theorem Suppose $S$ is an ordered set with the least-upper-bound property,
-$B \subset S, B$ is not empty, and $B$ is bounded below.
-Let $L$ be the set of all lower bounds of $B$.
-
-Then
+1.11 Theorem Suppose $S$ is an ordered set with the least-upper-bound property, $B \subset S, B$ is not empty, and $B$ is bounded below.
+Let $L$ be the set of all lower bounds of $B$. Then
 exists in $S$, and $\alpha=\inf B$.
 $$
 \alpha=\sup L
 $$
 In particular, inf $B$ exists in $S$.
+
+Proof
+Since $B$ is bounded below, $L$ is not empty. Since $L$ consists of exactly those $y \in S$ which satisfy the inequality $y \leq x$ for every $x \in B$, we see that every $x \in B$ is an upper bound of $L$. Thus $L$ is bounded above. Our hypothesis about $S$ implies therefore that $L$ has a supremum in $S$; call it $\alpha$.
+
+If $\gamma<\alpha$ then (see Definition 1.8) $\gamma$ is not an upper bound of $L$, hence $\gamma \notin B$. It follows that $\alpha \leq x$ for every $x \in B$. Thus $\alpha \in L$.
+
+If $\alpha<\beta$ then $\beta \notin L$, since $\alpha$ is an upper bound of $L$.
+
+We have shown that $\alpha \in L$ but $\beta \notin L$ if $\beta>\alpha$. In other words, $\alpha$ is a lower bound of $B$, but $\beta$ is not if $\beta>\alpha$. This means that $\alpha=\inf B$.
+QED
 -/
 
 -- p1: α = sup L exists in S (trivial because it's in the way α is defined)
@@ -27,13 +32,6 @@ import Mathlib.Init.Set
 import Mathlib.Order.Bounds.Basic
 
 #check lowerBounds
-
-theorem sup_of_lower_bounds_is_in_S {S : Type} [LinearOrder S] (B : Set S) (HB : Set.Nonempty B)
-(L : Set S) (HL : Set.Nonempty L) (HL' : L = lowerBounds B) (α : S) (Hα : IsLUB L α) : IsGLB B α := sorry
-
-import Mathlib.Init.Order.Defs
-import Mathlib.Init.Set
-import Mathlib.Order.Bounds.Basic
 
 theorem sup_of_lower_bounds {S : Type*} [LinearOrder S]
     (B : Set S) (L : Set S) (hL : L = lowerBounds B) (hL : L.Nonempty)

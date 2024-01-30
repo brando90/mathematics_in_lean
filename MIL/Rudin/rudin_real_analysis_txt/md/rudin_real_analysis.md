@@ -437,22 +437,21 @@ and $0 \notin E_{1}, 0 \in \mathrm{E}_{2}$.
 If $E \subset \mathrm{S}, E$ is not empty, and $E$ is bounded above, then sup $E$ exists in $S$. Example 1.9(a) shows that $Q$ does not have the least-upper-bound property. We shall now show that there is a close relation between greatest lower bounds and least upper bounds, and that every ordered set with the least-upperbound property also has the greatest-lower-bound property.
 
 1.11 Theorem Suppose $S$ is an ordered set with the least-upper-bound property, $B \subset S, B$ is not empty, and $B$ is bounded below. Let $L$ be the set of all lower bounds of $B$. Then
-
-exists in $S$, and $\alpha=\inf B$.
-
 $$
 \alpha=\sup L
 $$
-
+exists in $S$, and $\alpha=\inf B$.
 In particular, inf $B$ exists in $S$.
 
-Proof Since $B$ is bounded below, $L$ is not empty. Since $L$ consists of exactly those $y \in S$ which satisfy the inequality $y \leq x$ for every $x \in B$, we see that every $x \in B$ is an upper bound of $L$. Thus $L$ is bounded above. Our hypothesis about $S$ implies therefore that $L$ has a supremum in $S$; call it $\alpha$.
+Proof
+Since $B$ is bounded below, $L$ is not empty. Since $L$ consists of exactly those $y \in S$ which satisfy the inequality $y \leq x$ for every $x \in B$, we see that every $x \in B$ is an upper bound of $L$. Thus $L$ is bounded above. Our hypothesis about $S$ implies therefore that $L$ has a supremum in $S$; call it $\alpha$.
 
 If $\gamma<\alpha$ then (see Definition 1.8) $\gamma$ is not an upper bound of $L$, hence $\gamma \notin B$. It follows that $\alpha \leq x$ for every $x \in B$. Thus $\alpha \in L$.
 
 If $\alpha<\beta$ then $\beta \notin L$, since $\alpha$ is an upper bound of $L$.
 
 We have shown that $\alpha \in L$ but $\beta \notin L$ if $\beta>\alpha$. In other words, $\alpha$ is a lower bound of $B$, but $\beta$ is not if $\beta>\alpha$. This means that $\alpha=\inf B$.
+QED
 
 \section{FIELDS}
 
