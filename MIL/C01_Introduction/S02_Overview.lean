@@ -1,9 +1,12 @@
 import Mathlib.Data.Nat.Basic
 import Mathlib.Data.Nat.Parity
+import Mathlib.Data.Real.Basic
+
+
 import MIL.Common
 
 open Nat
-
+open Real
 -- These are pieces of data.
 #check 2 + 2
 
@@ -55,3 +58,7 @@ example : ∀ m n : Nat, Even n → Even (m * n) := by
 example : ∀ m n : Nat, Even n → Even (m * n) := by
   intros; simp [*, parity_simps]
 
+
+
+theorem distributive: ∀ a b c : Nat, a * (b + c) = a * b + a * c := by
+  use left_distrib;
