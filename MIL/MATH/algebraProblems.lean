@@ -21,6 +21,7 @@ import Mathlib.Tactic.Zify
 
 
 /-
+
 A number $x$ is 3 larger than its reciprocal.  What is the value of $\\left(x-\\frac{1}{x}\\right)^4$?
 
 Solution:
@@ -29,7 +30,7 @@ The sentence is telling us, in algebra,  $$x=3+\\frac{1}{x}$$ A more useful form
 -/
 open Mathlib.Tactic.LinearCombination
 
-theorem alg_test_2048 (x : ℚ) (h1: x = 1/x + 3) : (x - 1/x)^4 = 81:= by
+theorem simple_reciprocal_equation (x : ℚ) (h1: x = 1/x + 3) : (x - 1/x)^4 = 81:= by
   have h2: x - 1/x = 1/x + 3 - 1/x:= by
     rw[←pf_sub_c]
     rw[←h1]
@@ -46,7 +47,7 @@ theorem alg_test_2048 (x : ℚ) (h1: x = 1/x + 3) : (x - 1/x)^4 = 81:= by
 }
 -/
 --Comment, this problem seems a little easy and convoluted.
-theorem alg_test_1915 (fish vol : ℚ) (h1: fish = 8 * vol) (h2: fish = 600) : vol = 75:= by
+theorem fish_unit_conversion (fish vol : ℚ) (h1: fish = 8 * vol) (h2: fish = 600) : vol = 75:= by
   have div: vol = fish / 8 := by
     rw[h1]
     ring
@@ -68,5 +69,25 @@ theorem alg_test_1915 (fish vol : ℚ) (h1: fish = 8 * vol) (h2: fish = 600) : v
 def linear (a : ℝ) (b : ℝ) (x: ℝ):=
   a * x + b
 
-theorem alg_test_2237 (a1 b1 a2 b2 : ℝ) (h1: linear a1 b1 2 = 3) (h2: ∀ x : ℝ, linear a1 b1 (linear a2 b2 x) = 4 * x + 7): a2 * (-1) + b2 = 2 := by
+theorem linear_function_composition (a1 b1 a2 b2 : ℝ) (h1: linear a1 b1 2 = 3) (h2: ∀ x : ℝ, linear a1 b1 (linear a2 b2 x) = 4 * x + 7): a2 * (-1) + b2 = 2 := by
   sorry
+
+
+/-
+{
+    "problem": "Three pencils and a jumbo eraser cost $\\$1.24$. Five pencils and a jumbo eraser cost $\\$1.82$. No prices include tax. In cents, what is the cost of a pencil?",
+    "level": "Level 2",
+    "type": "Algebra",
+    "solution": "Call the price of a pencil $p$ and the price of a jumbo eraser $e$, in terms of cents. We can use the following system of equations to represent the information given: \\begin{align*}\n3p + e &= 124 \\\\\n5p + e &= 182 \\\\\n\\end{align*} Subtracting the first equation from the second gives $2p = 58$, or $p = 29$. Thus, the cost of a pencil is $\\boxed{29}$ cents."
+}
+-/
+
+theorem word_problem_system_of_eq (x y : ℝ) (h1: 3*x + y = 124) (h2: 5*x + y = 182) : x = 29:= by
+  have sub1: x = (124 - y)/3 := by
+    rw[← h1]
+    ring
+  have sub2: 29 = (5*x + y) * (29) / (182):=by
+    rw[h2]
+    norm_num
+  rw[sub1]
+  rw[sub2]
