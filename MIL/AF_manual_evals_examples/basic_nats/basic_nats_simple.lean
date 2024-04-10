@@ -1,6 +1,5 @@
 ---- Example: define unary natural numbers
 
----- define unary nats
 -- define unary natural numbers
 inductive UnaryNat : Type
 | Zero: UnaryNat
