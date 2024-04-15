@@ -31,7 +31,8 @@ search engine for data sets: https://datasetsearch.research.google.com/
 - [deep mind mathematics data set](https://github.com/google-deepmind/mathematics_dataset)
 - [GSM8K](https://huggingface.co/datasets/gsm8k)
 - [Dataset Card for PDF Association dataset (PDFA), pdfa-eng-wds](https://huggingface.co/datasets/pixparse/pdfa-eng-wds)
-    - [where is the maths pdfs?](https://huggingface.co/datasets/pixparse/pdfa-eng-wds/discussions/2) 
+    - [where is the maths pdfs?](https://huggingface.co/datasets/pixparse/pdfa-eng-wds/discussions/2)
+- olympiad benchmark imo https://github.com/OpenBMB/OlympiadBench 
 
 ## Eval
 - AF
